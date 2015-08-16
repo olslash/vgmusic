@@ -22,7 +22,6 @@ var config = {
             'lodash',
             'redux',
             'react-redux',
-            'jquery',
             'isomorphic-fetch',
             'redux-thunk',
             'redux-logger'
