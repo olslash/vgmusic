@@ -14,18 +14,28 @@ class PlaylistApp extends Component {
     render() {
         const { dispatch, tracks, isFetching } = this.props;
         return (
-            <div>
-            {isFetching && tracks.length === 0 &&      
-                <LoadingScreen />
-            }
+            <div className="container">
+                
+                <div className="row header">
+                </div>
+                
+                <div className="row content">
+                {isFetching && tracks.length === 0 &&      
+                    <LoadingScreen />
+                }
 
-            {!isFetching && tracks.length === 0 &&
-                <h1>Empty</h1>
-            }
+                {!isFetching && tracks.length === 0 &&
+                    <h1>Empty</h1>
+                }
 
-            {tracks.length > 0 && 
-                <Playlist tracks={tracks} />
-            }
+                {tracks.length > 0 && 
+                    <Playlist tracks={tracks} />
+                }
+                </div>
+
+                <div className="row footer">
+                </div>
+
             </div>
         );
     }
