@@ -23,7 +23,9 @@ var config = {
             'redux',
             'react-redux',
             'jquery',
-            'isomorphic-fetch'
+            'isomorphic-fetch',
+            'redux-thunk',
+            'redux-logger'
         ]
     },
     resolve: {
@@ -42,7 +44,8 @@ var config = {
         loaders: [
             { test: /\.js?$/, exclude: /node_modules/, loader: 'babel?cacheDirectory'},
             { test: /\.css$/, loader: 'style-loader!css-loader' },
-            { test: /\.(png|woff)$/, loader: 'url-loader?limit=100000' }
+            { test: /\.(png|woff)$/, loader: 'url-loader?limit=100000' },
+            { test: /\.(json)$/, loader: 'file?name=/data/data.json&context=/src'}
         ]
     },
 

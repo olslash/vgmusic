@@ -1,28 +1,52 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { fetchPlaylist } from '../actions';
+
+import LoadingScreen from '../components/LoadingScreen';
+import Playlist from '../components/Playlist';
 
 class PlaylistApp extends Component {  
-  render() {
-    return (
-      <h1>Hello World!</h1>
-    );
-  }
+    componentDidMount() {
+        const { dispatch } = this.props;
+        dispatch(fetchPlaylist());
+    }
+
+    render() {
+        const { dispatch, tracks, isFetching } = this.props;
+        return (
+            <div>
+            {isFetching && tracks.length === 0 &&      
+                <LoadingScreen />
+            }
+
+            {!isFetching && tracks.length === 0 &&
+                <h1>Empty</h1>
+            }
+
+            {tracks.length > 0 && 
+                <Playlist tracks={tracks} />
+            }
+            </div>
+        );
+    }
 };
 
 PlaylistApp.propTypes = {
     tracks: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      game: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      url: PropTypes.string.isRequired
+        id: PropTypes.number.isRequired,
+        game: PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        url: PropTypes.string.isRequired
     })),
-    isFetching: PropTypes.bool.isRequired
+    isFetching: PropTypes.bool.isRequired,
+    dispatch: PropTypes.func.isRequired
 }
 
 function select(state) {
+    const { tracks, isFetching } = state.tracklist;
     return {
-        tracks: state.tracks,
-        isFetching: state.isFetching
+        tracks,
+        isFetching
     }
 }
 

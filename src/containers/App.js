@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 
-import store from '../store';
+import configureStore from '../store';
 
 import PlaylistApp from './PlaylistApp'
+
+const store = configureStore();
 
 export default class App extends Component {
     render() {

@@ -29,6 +29,7 @@ function requestPlaylist() {
 }
 
 function receivePlaylist(json) {
+    console.log("GOT JSON", json);
     return {
         type: RECEIVE_PLAYLIST,
         tracks: json.playlist.trackList.track.map((track, index) => { 
@@ -42,12 +43,16 @@ function receivePlaylist(json) {
     }
 }
 
-function fetchPlaylist() {
+export function fetchPlaylist() {
     return dispatch => {
         dispatch(requestPlaylist());
-        return fetch("/data/tracklist.json")
-            .then(req => req.json())
-            .then(json => dispatch(receivePlaylist(json)));
+        return fetch(require("file!../data/tracklist.json"))
+            .then(req => {
+                return req.json();
+            })
+            .then(json => {
+                return dispatch(receivePlaylist(json));
+            });
     }
 }
 
