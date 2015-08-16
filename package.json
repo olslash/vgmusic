@@ -23,11 +23,8 @@
     "webpack-dev-server": "^1.10.1"
   },
   "dependencies": {
-    "alt": "^0.17.1",
     "babel": "^5.8.21",
     "babel-runtime": "^5.8.20",
-    "baobab": "^1.1.2",
-    "baobab-react": "^0.1.1",
     "isomorphic-fetch": "^2.1.1",
     "jquery": "^2.1.4",
     "lodash": "^3.10.1",
