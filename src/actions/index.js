@@ -48,7 +48,9 @@ export function fetchPlaylist() {
         dispatch(requestPlaylist());
         return fetch(require("file!../data/tracklist.json"))
             .then(req => {
-                return req.json();
+                var data = req.json()
+                console.log(data);
+                return data;
             })
             .then(json => {
                 return dispatch(receivePlaylist(json));
