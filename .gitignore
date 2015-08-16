@@ -1,6 +1,6 @@
 divshot.json
 *.sublime-project
-vgmusic.sublimt-project
+*.sublime-workspace
 .tern-port
 node_modules/
 build/
