@@ -44,7 +44,7 @@ var config = {
             { test: /\.js?$/, exclude: /node_modules/, loader: 'babel?cacheDirectory'},
             { test: /\.css$/, loader: 'style-loader!css-loader' },
             { test: /\.(png|woff)$/, loader: 'url-loader?limit=100000' },
-            { test: /\.(json)$/, loader: 'file?name=/data/data.json&context=/src'}
+            { test: /\.(json)$/, loader: 'file-loader'}
         ]
     },
 
