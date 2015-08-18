@@ -1,14 +1,15 @@
 import React, { Component, PropTypes } from 'react';
+import FitText from 'react-fittext';
 
 class Track extends Component {
     render() {
         const { track } = this.props;
         return (
-            <tr>
-                <td>{track.id + 1}</td>
-                <td>{track.game}</td>
-                <td>{track.title}</td>
-            </tr>
+            <li>
+                <FitText compressor={4.0}>
+                    <div>{track.game + ' - ' + track.title}</div>
+                </FitText>
+            </li>
         )
     }
 }
@@ -17,20 +18,17 @@ class Playlist extends Component {
     render() {
         const { tracks } = this.props;
         return (
-            <table>
-                <thead>
-                    <tr>
-                        <th>Track #</th>
-                        <th>Game</th>
-                        <th>Title</th>
-                    </tr>
-                </thead>
-                <tbody>
+            <div className="row">
+                <ul>
                     {tracks.map(track => {
-                        return <Track track={track} />
+                        return <Track 
+                                className="twelve columns"
+                                name={"song-"+track.id} 
+                                key={track.id} 
+                                track={track} />
                     })}
-                </tbody>
-            </table>
+                </ul>
+            </div>
         )
     }
 }

@@ -15,7 +15,7 @@ var config = {
     target: 'web',
     cache: true,
     entry: {
-        module: ['webpack/hot/dev-server', path.join(srcPath, 'app.js')],
+        module: [path.join(srcPath, 'app.js')],
         common: [
             'react', 
             'react-router',
@@ -24,7 +24,8 @@ var config = {
             'react-redux',
             'isomorphic-fetch',
             'redux-thunk',
-            'redux-logger'
+            'redux-logger',
+            'react-sticky'
         ]
     },
     resolve: {
@@ -42,9 +43,9 @@ var config = {
     module: {
         loaders: [
             { test: /\.js?$/, exclude: /node_modules/, loader: 'babel?cacheDirectory'},
-            { test: /\.css$/, loader: 'style-loader!css-loader' },
             { test: /\.(png|woff)$/, loader: 'url-loader?limit=100000' },
-            { test: /\.(json)$/, loader: 'file-loader'}
+            { test: /\.(json)$/, loader: 'file-loader'},
+            { test: /\.scss$/, loader: 'style!css!sass' }
         ]
     },
 
@@ -55,14 +56,7 @@ var config = {
             template: './src/index.html'
         }),
         new webpack.NoErrorsPlugin()
-    ],
-
-    debug: true,
-    devtool: 'eval-cheap-module-source-map',
-    devServer: {
-        contentBase: './build',
-        historyApiFallback: true
-    }
+    ]
 };
 
 module.exports = config;

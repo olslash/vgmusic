@@ -1,9 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { fetchPlaylist } from '../actions';
 
-import LoadingScreen from '../components/LoadingScreen';
-import Playlist from '../components/Playlist';
+import { fetchPlaylist } from '../actions';
+import { LoadingScreen, Playlist, Footer, Header } from '../components';
 
 class PlaylistApp extends Component {  
     componentDidMount() {
@@ -13,17 +12,19 @@ class PlaylistApp extends Component {
 
     render() {
         const { dispatch, tracks, isFetching } = this.props;
-        return (
-            <div className="container">
-                
-                <div className="row header">
-                </div>
-                
-                <div className="row content">
-                {isFetching && tracks.length === 0 &&      
-                    <LoadingScreen />
-                }
 
+        if (isFetching && tracks.length === 0) {
+            return (
+                <div>
+                    <LoadingScreen />
+                </div>
+            )
+        }
+
+        return (
+            <div>
+                <Header /> 
+                <div>
                 {!isFetching && tracks.length === 0 &&
                     <h1>Empty</h1>
                 }
@@ -32,10 +33,7 @@ class PlaylistApp extends Component {
                     <Playlist tracks={tracks} />
                 }
                 </div>
-
-                <div className="row footer">
-                </div>
-
+                <Footer />
             </div>
         );
     }
