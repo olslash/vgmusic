@@ -1,3 +1,24 @@
 body {
-    background-color: black;
+
+}
+
+.app {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}  
+
+.playlist-container {
+    flex: 1;
+    padding-left: 75px;
+    padding-right: 75px;
+    min-width: 650px;
+
+    .playlist-header {
+
+    }
+
+    .playlist-content {
+
+    }
 }

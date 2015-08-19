@@ -15,14 +15,14 @@ class PlaylistApp extends Component {
 
         if (isFetching && tracks.length === 0) {
             return (
-                <div>
+                <div className="app">
                     <LoadingScreen />
                 </div>
             )
         }
 
         return (
-            <div>
+            <div className="app">
                 <Header /> 
                 <div>
                 {!isFetching && tracks.length === 0 &&

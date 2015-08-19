@@ -25,7 +25,8 @@ var config = {
             'isomorphic-fetch',
             'redux-thunk',
             'redux-logger',
-            'react-sticky'
+            'react-sticky',
+            'mui'
         ]
     },
     resolve: {
