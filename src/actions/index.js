@@ -29,7 +29,6 @@ function requestPlaylist() {
 }
 
 function receivePlaylist(json) {
-    console.log("GOT JSON:", json);
     return {
         type: RECEIVE_PLAYLIST,
         tracks: json.playlist.trackList.track.map((track, index) => { 

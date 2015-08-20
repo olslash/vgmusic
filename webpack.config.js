@@ -15,19 +15,7 @@ var config = {
     target: 'web',
     cache: true,
     entry: {
-        module: [path.join(srcPath, 'app.js')],
-        common: [
-            'react', 
-            'react-router',
-            'lodash',
-            'redux',
-            'react-redux',
-            'isomorphic-fetch',
-            'redux-thunk',
-            'redux-logger',
-            'react-sticky',
-            'mui'
-        ]
+        module: [path.join(srcPath, 'app.js')]
     },
     resolve: {
         root: srcPath,
