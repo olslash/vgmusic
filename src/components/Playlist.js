@@ -17,8 +17,12 @@ class Playlist extends Component {
                     "content": track.id + 1 + ".",
                     "style": idRowStyle
                 },
-                title: { "content": track.title },
-                game: { "content": track.game }
+                title: { 
+                    "content": track.title,
+                },
+                game: { 
+                    "content": track.game,
+                }
             }
         });
 
@@ -26,12 +30,14 @@ class Playlist extends Component {
             id: {
                 content: "Track #",
                 tooltip: "Track Number",
-                style: {width: "15px"}
+                style: {
+                    width: "8%"
+                }
 
             },
             title: {
                 content: "Title",
-                tooltip: "The tracks title"
+                tooltip: "The tracks title",
             },
             game: {
                 content: "Game",
@@ -51,14 +57,14 @@ class Playlist extends Component {
                         headerColumns={headerColumns}
                         rowData={trackList}
                         columnOrder={tableColumnOrder} 
-                        selectable={false}
+                        selectable={true}
                         displayRowCheckbox={false}
                         showRowHover={true} 
                         preScanRowData={false}
                         canSelectAll={false}
                         multiSelectable={false}
                         displaySelectAll={false} 
-                        height={"70vh"} />
+                        height={"77.5vh"} />
                 </Card>
             </div>
         )

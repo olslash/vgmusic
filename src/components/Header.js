@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
+import { AppBar } from 'material-ui';
 
 class Header extends Component {
     render() {
         return (
             <div>
-                <h1>Header</h1>
+            	<AppBar
+            		title="Vidya Game Music Player" />
             </div>
         )
     }

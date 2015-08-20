@@ -23,6 +23,7 @@ class PlaylistApp extends Component {
 
         return (
             <div className="app">
+                <Header />
                 <div>
                 {!isFetching && tracks.length === 0 &&
                     <h1>Empty</h1>

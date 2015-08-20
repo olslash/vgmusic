@@ -17,7 +17,7 @@ export default function player(state = {
 }, action {
     switch (action.type) {
     case NEXT_SONG:
-        
+        return;
     case PREV_SONG:
         return;
     case PAUSE_SONG:
