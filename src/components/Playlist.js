@@ -6,9 +6,17 @@ class Playlist extends Component {
     render() {
         const { tracks } = this.props;
 
+        let idRowStyle = {
+            textAlign: "left",
+            paddingRight: 0
+        };
+
         let trackList = tracks.map((track, index, tracks) => {
             return {
-                id: { "content": track.id + 1 },
+                id: { 
+                    "content": track.id + 1 + ".",
+                    "style": idRowStyle
+                },
                 title: { "content": track.title },
                 game: { "content": track.game }
             }
@@ -18,6 +26,8 @@ class Playlist extends Component {
             id: {
                 content: "Track #",
                 tooltip: "Track Number",
+                style: {width: "15px"}
+
             },
             title: {
                 content: "Title",
@@ -47,8 +57,8 @@ class Playlist extends Component {
                         preScanRowData={false}
                         canSelectAll={false}
                         multiSelectable={false}
-                        displaySelectAll={false}
-                        fixedHeader={true} />
+                        displaySelectAll={false} 
+                        height={"70vh"} />
                 </Card>
             </div>
         )

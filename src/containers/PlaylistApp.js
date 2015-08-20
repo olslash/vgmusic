@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import { fetchPlaylist } from '../actions';
-import { LoadingScreen, Playlist, Footer, Header } from '../components';
+import { Player, LoadingScreen, Playlist, Footer, Header } from '../components';
 
 class PlaylistApp extends Component {  
     componentDidMount() {
@@ -31,6 +31,7 @@ class PlaylistApp extends Component {
                 {tracks.length > 0 && 
                     <Playlist tracks={tracks} />
                 }
+                <Player />
                 </div>
             </div>
         );
