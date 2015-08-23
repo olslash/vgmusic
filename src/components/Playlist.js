@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import mui, { Table, Card, CardHeader, CardActions } from 'material-ui';
+import mui, { Paper, Table, Card, CardHeader, CardActions } from 'material-ui';
+import { Player } from '.';
 
 class Playlist extends Component {
 
@@ -13,14 +14,14 @@ class Playlist extends Component {
 
         let trackList = tracks.map((track, index, tracks) => {
             return {
-                id: { 
+                id: {
                     "content": track.id + 1 + ".",
                     "style": idRowStyle
                 },
-                title: { 
+                title: {
                     "content": track.title,
                 },
-                game: { 
+                game: {
                     "content": track.game,
                 }
             }
@@ -49,23 +50,20 @@ class Playlist extends Component {
 
         return (
             <div className="playlist-container">
-                <Card>
-                    <CardHeader 
-                        title="Song Title" 
-                        subtitle="Game Title" />
-                    <Table 
-                        headerColumns={headerColumns}
-                        rowData={trackList}
-                        columnOrder={tableColumnOrder} 
-                        selectable={true}
-                        displayRowCheckbox={false}
-                        showRowHover={true} 
-                        preScanRowData={false}
-                        canSelectAll={false}
-                        multiSelectable={false}
-                        displaySelectAll={false} 
-                        height={"77.5vh"} />
-                </Card>
+                <Paper zDepth={1}>
+                    <div>
+                        <Table
+                            rowData={trackList}
+                            columnOrder={tableColumnOrder}
+                            selectable={true}
+                            displayRowCheckbox={false}
+                            showRowHover={true}
+                            preScanRowData={false}
+                            canSelectAll={false}
+                            multiSelectable={false}
+                            displaySelectAll={false} />
+                    </div>
+                </Paper>
             </div>
         )
     }

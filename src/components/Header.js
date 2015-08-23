@@ -1,12 +1,17 @@
 import React, { Component, PropTypes } from 'react';
-import { AppBar } from 'material-ui';
+import { AppBar, Paper } from 'material-ui';
 
 class Header extends Component {
     render() {
+        let headerStyle = {
+            height: "65px",
+            backgroundColor: "#eee",
+        }
+
         return (
-            <div>
-            	<AppBar
-            		title="Vidya Game Music Player" />
+            <div className="header-container">
+                <Paper zIndex={1} style={headerStyle}>
+                </Paper>
             </div>
         )
     }

@@ -14,7 +14,7 @@ export default function player(state = {
     isRandom: false,
     status: PLAYER_STATUS.STOPPED
 
-}, action {
+}, action) {
     switch (action.type) {
     case NEXT_SONG:
         return;
@@ -28,5 +28,5 @@ export default function player(state = {
         return;
     case PLAYER_STATUS:
         return;
-    }  
-})
+    }
+}

@@ -1,29 +1,36 @@
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     margin: 0 0 0 0;
     padding: 0 0 0 0;
-    min-height: 100%;
-    margin-bottom: 75px;
-}
-
-.testClass {
-    background-color: black;
+    overflow-y: hidden;
 }
 
 .app {
     display: flex;
     justify-content: center;
     flex-direction: column;
-}  
+}
 
 .playlist-container {
     flex: 1;
-    margin-top: 30px;
-    padding-left: 75px;
-    padding-right: 75px;
-    min-width: 650px;
+    height: calc(100vh - 215px);
+    overflow-y: auto;
+    margin-top: 65px;
+    margin-bottom: 65px;
+    padding-top: 50px;
 
-    .playlist-header {
+    @media all and (max-width: 800px) {
+        padding-left: 0;
+        padding-right: 0;
+    }
 
+    @media all and (min-width: 801px) {
+        padding-left: 75px;
+        padding-right: 75px;
     }
 
     .playlist-content {
@@ -32,14 +39,26 @@ body {
 }
 
 .player-container {
-    flex: 1;
-    position: absolute;
-    left: 0;
+    position: fixed;
     bottom: 0;
-    height: 75px;
+    left: 0;
     width: 100%;
-    background-color: #eee;
 
-    .player-toolbar {
+    .player-controls {
+        flex: 1;
+        flex-direction: row;
+        justify-content: center;
+        align-content: center;
+        border: 1px solid;
+    }
+}
+
+.header-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    .header-toolbar {
     }
 }

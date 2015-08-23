@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import { fetchPlaylist } from '../actions';
-import { Player, LoadingScreen, Playlist, Footer, Header } from '../components';
+import { Player, LoadingScreen, Playlist, Header } from '../components';
 
-class PlaylistApp extends Component {  
+class PlaylistApp extends Component {
     componentDidMount() {
         const { dispatch } = this.props;
         dispatch(fetchPlaylist());
@@ -29,11 +29,11 @@ class PlaylistApp extends Component {
                     <h1>Empty</h1>
                 }
 
-                {tracks.length > 0 && 
+                {tracks.length > 0 &&
                     <Playlist tracks={tracks} />
                 }
-                <Player />
                 </div>
+                <Player />
             </div>
         );
     }
