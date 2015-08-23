@@ -2,6 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import mui, { Paper, Table, Card, CardHeader, CardActions } from 'material-ui';
 import { Player } from '.';
 
+class PlayButton extends Component {
+    render() {
+        
+    }
+}
+
 class Playlist extends Component {
 
     render() {

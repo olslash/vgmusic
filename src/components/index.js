@@ -1,11 +1,11 @@
-import Footer from './Footer';
+import NowPlaying from './NowPlaying';
 import Header from './Header';
 import LoadingScreen from './LoadingScreen';
 import Playlist from './Playlist';
 import Player from './Player';
 
 export {
-    Footer,
+    NowPlaying,
     Header,
     LoadingScreen,
     Playlist,

@@ -11,7 +11,7 @@ class PlaylistApp extends Component {
     }
 
     render() {
-        const { dispatch, tracks, isFetching } = this.props;
+        const { tracks, isFetching } = this.props.tracklist;
 
         if (isFetching && tracks.length === 0) {
             return (
@@ -39,23 +39,8 @@ class PlaylistApp extends Component {
     }
 };
 
-PlaylistApp.propTypes = {
-    tracks: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        game: PropTypes.string.isRequired,
-        title: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired
-    })),
-    isFetching: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired
-}
-
 function select(state) {
-    const { tracks, isFetching } = state.tracklist;
-    return {
-        tracks,
-        isFetching
-    }
+    return state;
 }
 
 export default connect(select)(PlaylistApp);
