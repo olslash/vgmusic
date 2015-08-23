@@ -21,12 +21,20 @@ export default function player(state = {
     case PREV_SONG:
         return;
     case PAUSE_SONG:
-        return;
+        return _.assign({}, state, {
+            status: PLAYER_STATUS.PAUSED
+        });
     case PLAY_SONG:
-        return;
+        return _.assign({}, state, {
+            status: PLAYER_STATUS.PLAYING
+        });
     case STOP_SONG:
-        return;
+        return _.assign({}, state, {
+            status: PLAYER_STATUS.STOPPED
+        });
     case PLAYER_STATUS:
         return;
+    default:
+        return state
     }
 }

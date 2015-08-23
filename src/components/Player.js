@@ -2,47 +2,59 @@ import React, { Component } from 'react';
 import { Paper, FontIcon, IconButton } from 'material-ui';
 
 const defaultIconStyle = {
-    fontSize: "48px",
+    fontSize: "48px"
 };
 
 const defaultButtonStyle = {
     paddingRight: "20px",
     display: "inline",
-    listStyleType: "none",
+    listStyleType: "none"
 };
 
 class PlayPauseButton extends Component {
     render() {
         let buttonStyle = {
             ...defaultButtonStyle
-        }
+        };
 
         let iconStyle = {
             ...defaultIconStyle
-        }
+        };
+
+        const icon = {
+            PLAYING: 'pause_circle_filled',
+            PAUSED:  'play_circle_filled',
+            STOPPED: 'play_circle_filled'
+        }[this.props.status] ;
 
         return (
             <li style={buttonStyle}>
                 <IconButton
+                    onTouchTap={ this.props.onTouchTap }
                     iconStyle={iconStyle}
                     className="playbtn"
                     iconClassName="material-icons">
-                    play_circle_filled
+                    { icon }
                 </IconButton>
             </li>
         )
     }
 }
 
+PlayPauseButton.propTypes = {
+    status:     React.PropTypes.oneOf(['PLAYING', 'PAUSED', 'STOPPED']).isRequired,
+    onTouchTap: React.PropTypes.func
+};
+
 class NextButton extends Component {
     render() {
         let buttonStyle = {
             ...defaultButtonStyle
-        }
+        };
 
         let iconStyle = {
             ...defaultIconStyle
-        }
+        };
 
         return (
             <li style={buttonStyle}>
@@ -61,11 +73,11 @@ class PreviousButton extends Component {
     render() {
         let buttonStyle = {
             ...defaultButtonStyle
-        }
+        };
 
         let iconStyle = {
             ...defaultIconStyle
-        }
+        };
 
         return (
             <li style={buttonStyle}>
@@ -90,7 +102,7 @@ class RandomButton extends Component {
         let iconStyle = {
             ...defaultIconStyle
         }
- 
+
         return (
             <li style={buttonStyle}>
                 <IconButton
@@ -111,19 +123,26 @@ class Player extends Component {
             backgroundColor: "#eee"
         };
 
+        const touchPlayAction = {
+            STOPPED: this.props.actions.playSong,
+            PAUSED: this.props.actions.playSong,
+            PLAYING: this.props.actions.pauseSong
+        }[this.props.status];
+
         return (
-        	<div className="player-container">
-        		<Paper style={playerStyle} zIndex={2}>
+            <div className="player-container">
+                <Paper style={playerStyle} zIndex={2}>
                     <div className="player-controls">
                         <ul>
                             <PreviousButton />
-                            <PlayPauseButton />
+                            <PlayPauseButton status={ this.props.status }
+                                             onTouchTap={ touchPlayAction } />
                             <NextButton />
                             <RandomButton />
                         </ul>
                     </div>
-        		</Paper>
-        	</div>
+                </Paper>
+            </div>
         )
     }
 }
