@@ -76,7 +76,7 @@ class Playlist extends Component {
 }
 
 Playlist.propTypes = {
-    tracks: PropTypes.array.isRequired,
-}
+    tracks: PropTypes.array.isRequired
+};
 
 export default Playlist;

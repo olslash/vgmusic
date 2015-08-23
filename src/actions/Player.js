@@ -14,13 +14,13 @@ export const PLAYER_STATUS = {
     PLAYING: 'PLAYING'
 };
 
-function playSong() {
+export function playSong() {
     return {
         type: PLAY_SONG
     }
 }
 
-function pauseSong() {
+export function pauseSong() {
     return {
         type: PAUSE_SONG
     }
