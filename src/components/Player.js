@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { Paper, FontIcon, IconButton } from 'material-ui';
 
@@ -5,20 +6,24 @@ const defaultIconStyle = {
     fontSize: "48px"
 };
 
+const disabledIconStyle = _.assign({}, defaultIconStyle, {
+    color: 'rgba(0, 0, 0, .25)'
+});
+
 const defaultButtonStyle = {
     paddingRight: "20px",
     display: "inline",
     listStyleType: "none"
 };
 
+
 class PlayPauseButton extends Component {
     render() {
+        let iconStyle = this.props.status === 'STOPPED' ? disabledIconStyle
+                                                        : defaultIconStyle;
+
         let buttonStyle = {
             ...defaultButtonStyle
-        };
-
-        let iconStyle = {
-            ...defaultIconStyle
         };
 
         const icon = {
