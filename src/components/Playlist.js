@@ -4,11 +4,14 @@ import { Player } from '.';
 
 class PlayButton extends Component {
     render() {
-        
+
     }
 }
 
 class Playlist extends Component {
+    shouldComponentUpdate(nextProps) {
+        return nextProps.tracks !== this.props.tracks;
+    }
 
     render() {
         const { tracks } = this.props;
