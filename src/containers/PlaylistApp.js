@@ -36,7 +36,9 @@ class PlaylistApp extends Component {
                     <Playlist tracks={tracks} />
                 }
                 </div>
-                <Player { ...this.props.player } actions={ boundPlayerActionCreators }/>
+                <Player currentTrack={ tracks[0] }
+                        actions={ boundPlayerActionCreators }
+                    { ...this.props.player } />
             </div>
         );
     }

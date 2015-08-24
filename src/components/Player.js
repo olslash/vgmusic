@@ -102,11 +102,11 @@ class RandomButton extends Component {
         let buttonStyle = {
             ...defaultButtonStyle,
             paddingLeft: "50px"
-        }
+        };
 
         let iconStyle = {
             ...defaultIconStyle
-        }
+        };
 
         return (
             <li style={buttonStyle}>
@@ -122,11 +122,22 @@ class RandomButton extends Component {
 }
 
 class Player extends Component {
+    componentDidUpdate() {
+        if (this.props.status === 'PLAYING') {
+            this.refs.audio.getDOMNode().play();
+        } else {
+            this.refs.audio.getDOMNode().pause();
+        }
+    }
+
     render() {
         let playerStyle = {
             height: "100px",
             backgroundColor: "#eee"
         };
+
+        const { currentTrack } = this.props;
+        const audioUrl = (currentTrack && currentTrack.url) || '';
 
         const touchPlayAction = {
             STOPPED: this.props.actions.playSong,
@@ -136,7 +147,7 @@ class Player extends Component {
 
         return (
             <div className="player-container">
-                <Paper style={playerStyle} zIndex={2}>
+                <Paper style={ playerStyle } zIndex={2}>
                     <div className="player-controls">
                         <ul>
                             <PreviousButton />
@@ -146,6 +157,9 @@ class Player extends Component {
                             <RandomButton />
                         </ul>
                     </div>
+                    <audio ref="audio">
+                        <source src={ audioUrl } type="audio/mp4" />
+                    </audio>
                 </Paper>
             </div>
         )

@@ -10,7 +10,7 @@ import {
 } from "../actions/Player";
 
 export default function player(state = {
-    currentTrack: null,
+    //currentTrack: null,
     isRandom: false,
     status: PLAYER_STATUS.STOPPED
 
